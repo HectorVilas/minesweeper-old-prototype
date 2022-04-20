@@ -12,12 +12,12 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 - ✅ write down the README file
 
 ### design:
-- ❌ height must be same as window size to prevent scrolling
-- ❌ board must scale with window
-- ❌ board must keep aspect ratio
+- ✅ height must be same as window size to prevent scrolling
+- ✅ board must scale with window
+- ✅ board must keep aspect ratio
 
 ### things to display on screen:
-- ❌ the board
+- ✅ the board
 - ❌ counters
 - - ❌ remaining mines
 - - ❌ time played
@@ -34,7 +34,7 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 - - ❌ credits for any media I may use
 
 ### board generation:
-- ❌ the board must be generated
+- ✅ the board must be generated
 - - ❌ width and height defined by option settings
 - ❌ mines will be hidden in the board
 - - ❌ quantity defined by option settings
@@ -65,3 +65,12 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 - ❌ sounds
 - - ❌ sound toggle button in options
 - ❌ show the README.md in the page
+
+## update 1
+I just made a simple page with some style to start with the game. I wasn't sure how to make it, so I went again for a really simple aestetic, I can change it later.
+
+The board is being generated with `JS` and all the board related attributes are held as an object. This is the first time I make something like this.
+
+I still have some problems with the board scaling. I can make it shrink with the navigator window horizontally or vertically, but not both ways. I can't figure it out. Another problem is how it looks with too much or too little tiles on screen. May adjust the scaling depending on the total tiles so these don't look too big or too small. In this case I may remove the dynamic scaling.
+
+Now I've been thinking: how should I proceed? Should I make a 2D array to store the bombs, clicked tiles with it's number of mines around it and flags and then update the board? Or should I just make some array with the mines position and don't redraw too much in the screen? The former sounds easier to make, but I think the latter is the best way to proceed.
