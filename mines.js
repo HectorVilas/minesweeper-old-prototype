@@ -1,20 +1,26 @@
-const board = document.querySelector(".board")
-let boardWidth = 10
-let boardHeight = 5
-
-drawBoard()
-
-function drawBoard(){
-  for(let i = 0; i < boardHeight; i++){
-    let row = document.createElement("div")
-    board.appendChild(row)
-    for(let j = 0; j < boardWidth; j++){
-      let tile = document.createElement("div")
-      tile.classList = "tile"
-      tile.setAttribute("x",`${j}`)
-      tile.setAttribute("y",`${i}`)
-      row.appendChild(tile)
+let board = {
+  dom: document.querySelector(".board"),
+  width: 20,
+  height: 10,
+  draw(){
+    for(let i = 0; i < this.height; i++){
+      let row = document.createElement("div")
+      this.dom.appendChild(row)
+      for(let j = 0; j < board.width; j++){
+        let tile = document.createElement("div")
+        tile.classList = "tile"
+        tile.setAttribute("x",`${j}`)
+        tile.setAttribute("y",`${i}`)
+  
+        tile.addEventListener("click", () => {
+          console.log(tile)
+        })
+  
+        row.appendChild(tile)
+      }
     }
+    this.dom.style.aspectRatio = `${board.width}/${board.height}`
   }
-  board.style.aspectRatio = `${boardWidth}/${boardHeight}`
 }
+
+board.draw()
