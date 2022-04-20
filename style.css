@@ -1,14 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 body {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   height: 100vh;
   margin: 0;
   background-color: darkslateblue;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Roboto, 'Courier New', Courier, monospace;
   color: #eee;
 }
-
 div {
   display: flex;
   flex: 1 1 auto;
@@ -18,32 +17,60 @@ header {
   display: flex;
   flex: 0 0 auto;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}
+
+.top {
+  padding: 0 20px;
+}
+.top.left {
+  justify-content: left;
+} .top.center {
+  justify-content: center;
+} .top.right {
+  justify-content: right;
+}
+
+.content {
+  flex-direction: column;
+  padding: 10px;
 }
 
 .game-area {
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px; */
   flex-direction: row;
 }
 
 .board {
   flex-direction: column;
-  /* max-width: 500px; */
-  /* max-height: 500px; */
-  /* aspect-ratio: 1/1; */
+  /*temporal solution to disable scrolling*/
+  max-height: 85vh;
+  max-width: 85vw;
 }
 
 .tile {
   flex: 1 1 auto;
   background-color: #ccc;
+  border: 4px outset #eee;
+} .tile:hover {
+  background-color: #ddd;
+} .tile:active {
+  background-color: #ccc;
+  border-style: inset;
 }
+
 
 footer {
   display: flex;
   justify-content: space-around;
   gap: 20px;
+  padding: 0 20px;
 }
 footer > button {
   flex: 1 1 0;
