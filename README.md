@@ -74,3 +74,8 @@ The board is being generated with `JS` and all the board related attributes are 
 I still have some problems with the board scaling. I can make it shrink with the navigator window horizontally or vertically, but not both ways. I can't figure it out. Another problem is how it looks with too much or too little tiles on screen. May adjust the scaling depending on the total tiles so these don't look too big or too small. In this case I may remove the dynamic scaling.
 
 Now I've been thinking: how should I proceed? Should I make a 2D array to store the bombs, clicked tiles with it's number of mines around it and flags and then update the board? Or should I just make some array with the mines position and don't redraw too much in the screen? The former sounds easier to make, but I think the latter is the best way to proceed.
+
+## update 2
+I just wrote the basic object for the mines. Just for testing, 20 mines will be randomly placed and shown in red on the board. Now I need to store those coordinates instead of making those visible to the player.
+
+Thoughts: creating and using objects is so easy, I don't know why I didn't used them before. The code is much easier to read. I'm also avoiding using semicolons because the code looks really clean. I was using them just because I got the habit from `C++` and `C#` (I just know the basics, the most advanced thing I made in those two was a Battleship game for the console). And the objects? Same case: I got some basic experience from those two languages while learning them just for fun.
