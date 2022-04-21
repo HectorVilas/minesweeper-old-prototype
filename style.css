@@ -65,6 +65,10 @@ p {
   border-style: inset;
 }
 
+.tile.selected {
+  background-color: red;
+}
+
 
 footer {
   display: flex;
