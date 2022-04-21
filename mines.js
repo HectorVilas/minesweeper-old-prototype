@@ -13,9 +13,10 @@ let board = {
         tile.classList = "tile"
         tile.setAttribute("x",`${j}`)
         tile.setAttribute("y",`${i}`)
-  
+
         tile.addEventListener("click", () => {
-          console.log(tile)
+          // tile.classList.add("selected")
+          checkSurroundings(j,i)
         })
   
         row.appendChild(tile)
@@ -34,8 +35,7 @@ let mines = {
     for (let i = 0; i < this.quantity; i++) {
       let x = rand(board.width)
       let y = rand(board.height)
-      let mined = document.querySelector(`[x="${x}"][y="${y}"]`)
-      mined.classList.add("selected")
+      this.positions.push(`[${x},${y}]`)
     }
   }
 }
@@ -45,4 +45,19 @@ mines.placeMines()
 
 function rand(n){
   return Math.floor(Math.random()*n)
+}
+
+function checkSurroundings(x,y){
+  let tileC = document.querySelector(`[x="${x}"][y="${y}"]`)
+  let tileN = document.querySelector(`[x="${x}"][y="${y-1}"]`)
+  ; //without this the forEach won't work
+  [tileC, tileN].forEach(t => {
+    t.classList.add("selected")
+  })
+}
+
+function test(){
+  let a = 0
+  let b = 1
+  [a,b].forEach(x => console.log(x))
 }
