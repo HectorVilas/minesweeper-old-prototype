@@ -95,9 +95,7 @@ Without that semicolon, the `forEach` won't work, because:
 To prevent future errors, I'm going back to "semicolonize" everything. Maybe it's for the good, I want to go back to `C++` and `C#` in the future, so I better don't lose the habit.
 
 ## update 3
-Now the mines are "placed" on the board. An array will be populated with random X and Y coordinates. The position of each mine will be temporaly shown on red for testing.
-
-Also the tiles now have actions. Once the player clicks on one, if there's a mine in any of the eight surrounding tiles, the total number of mines will be displayed on it.
+The tiles now have actions. Once the player clicks on one, if there's a mine in any of the eight surrounding tiles, the total number of mines will be displayed on it.
 
 Playing a little I just noticed something: the randomizer can place another mine in the same occupied space, and it will show in the number revealing the surrounding mined tiles. I need a condition to check if there's a mine first and keep trying until it finds an empty space.
 
