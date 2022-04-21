@@ -79,3 +79,28 @@ Now I've been thinking: how should I proceed? Should I make a 2D array to store 
 I just wrote the basic object for the mines. Just for testing, 20 mines will be randomly placed and shown in red on the board. Now I need to store those coordinates instead of making those visible to the player.
 
 Thoughts: creating and using objects is so easy, I don't know why I didn't used them before. The code is much easier to read. I'm also avoiding using semicolons because the code looks really clean. I was using them just because I got the habit from `C++` and `C#` (I just know the basics, the most advanced thing I made in those two was a Battleship game for the console). And the objects? Same case: I got some basic experience from those two languages while learning them just for fun.
+
+**Note:** after finding an error, I just noticed semicolons are still important. What do I mean? This is an example:
+```javascript
+function test(){
+  let a = 0
+  let b = 1
+  ; //semicolon after last variable declaration
+  [a,b].forEach(x => console.log(x))
+}
+```
+Without that semicolon, the `forEach` won't work, because:
+>Uncaught ReferenceError: can't access lexical declaration 'b' before initialization
+
+To prevent future errors, I'm going back to "semicolonize" everything. Maybe it's for the good, I want to go back to `C++` and `C#` in the future, so I better don't lose the habit.
+
+## update 3
+Now the mines are "placed" on the board. An array will be populated with random X and Y coordinates. The position of each mine will be temporaly shown on red for testing.
+
+Also the tiles now have actions. Once the player clicks on one, if there's a mine in any of the eight surrounding tiles, the total number of mines will be displayed on it.
+
+Playing a little I just noticed something: the randomizer can place another mine in the same occupied space, and it will show in the number revealing the surrounding mined tiles. I need a condition to check if there's a mine first and keep trying until it finds an empty space.
+
+Something that worries me is: What if there's only a few available spaces? The `while` loop will go crazy generating thousand of coordinates until it hits the empty spot.
+
+If I keep the mines number not too high (making the game less challenging), it won't be a problem, but I can try something in case I want to place 99 mines in a 10x10 board: make an array representing each tile, and the randomizer just removes an element for each mine, so it will never be selected twice.
