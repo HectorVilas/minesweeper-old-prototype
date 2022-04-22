@@ -25,7 +25,7 @@ let board = {
 }
 
 let mines = {
-  quantity: 9,
+  quantity: 1,
   positions: [],
   
   placeMines(){
@@ -81,40 +81,8 @@ function checkForMines(x,y){
   const clickedTile = document.querySelector(`[x="${x}"][y="${y}"]`);
   clickedTile.classList.add("selected");
   clickedTile.innerText = foundMines;
-
-  let color = "gray";
-  switch(foundMines){
-    case 0:
-      clickedTile.innerText = "";
-      break;
-    case 1:
-      color = "blue";
-      break;
-    case 2:
-      color = "green";
-      break;
-    case 3:
-      color = "red";
-      break;
-    case 4:
-      color = "darkblue";
-      break;
-      case 5:
-      color = "darkred";
-      break;
-    case 6:
-      color = "darkgreen";
-      break;
-    case 7:
-    case 8:
-      color = "gray";
-      break;
-    default:
-      alert("Error: two or more mines found in the same place");
-      break;
-    }
-    clickedTile.style.color = color;
-
+  let colors = ["gray","blue","green","red","darkblue","darkred","darkgreen","gray","gray"];
+  clickedTile.style.color = colors[foundMines];
 };
 
 
