@@ -1,7 +1,7 @@
 # minesweeper
 Welcome to this new project! This time I'm ~~procrastinating the HTML forms course~~ making another game: the classic Minesweeper.
 
-The objective of this project is just to keep practicing, but having fun at the same time. This time I want to make use of `JS`'s objects. My previous project, [Lights Out](https://github.com/HectorVilas/lights-out), was made with primitives and a lot of code got mixed and hard to read, so I better start using some objects for a tidy code.
+This time I want to make use of `JS`'s objects. My previous project, [Lights Out](https://github.com/HectorVilas/lights-out), was made with primitives and a lot of code got mixed and hard to read, so I better start using some objects for a tidy code.
 
 ## play the game
 # https://hectorvilas.github.io/minesweeper/
@@ -36,19 +36,19 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 ### board generation:
 - ✅ the board must be generated
 - - ❌ width and height defined by option settings
-- ❌ mines will be hidden in the board
+- ✅ mines will be hidden in the board
 - - ❌ quantity defined by option settings
-- - ❌ the position will be randomized
+- - ✅ the position will be randomized
 
 ### game logic:
-- ❌ when a tile is clicked
+- ✅ when a tile is clicked
 - - ❌ if there's a mine
 - - - ❌ show it and reveal the rest of the mines
 - - - ❌ the game is over
 - - - ❌ the player can't keep clicking on the board without starting again
-- - ❌ else, show the number of mines surrounding the tile
-- - - ❌ if there's no mines, nothing will be shown
-- - - ❌ the surrounding tiles will auto-reveal until there's a mine around
+- - ✅ else, show the number of mines surrounding the tile
+- - - ✅ if there's no mines, nothing will be shown
+- - - ✅ the surrounding tiles will auto-reveal until there's a mine around
 - ❌ right click must add a flag to mark a mine
 - - ❌ every flag must reduce the mine counter by one
 - - ❌ player can't put more flag than the number of mines
@@ -131,3 +131,10 @@ For `JS` this is false: `[1,2] == [1,2]` so I did this:
 I'm pretty sure searching on internet for this exact problem would get me with the same or much better solution, but I'm still learning and I don't want to just search for the solution. Maybe some advanced array methods would be better, may change this snippet of code in the future.
 
 Another change I made in the code: Instead of choosing colors with a long switch-case, I just placed the colors' name in an array and used the index to define the color.
+
+**Note:** I tried to make a recursion function to reveal all the surrounding tiles not surrounded by any mines until finding one, but failed horribly (and got a stack overflow situation or revealed the entire board). Maybe I should make another function for this, or try again after modifying some code.
+
+## update 5
+I can't believe it, I made a recursive function, I finally made it! Some conditions here and there and here it is, the function to reveal all the surroundings tiles not surrounded by mines. It will reveal all the conected tiles until it finds a surrounded one and stop propagating from there.
+
+I've been all the day trying to make it, and it feels so simple now... This project was a really good idea to keep learning. I'm so happy right now, the satisfaction is immeasurable.
