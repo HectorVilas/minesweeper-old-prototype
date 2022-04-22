@@ -1,7 +1,7 @@
 let board = {
   domBoard: document.querySelector(".board"),
-  width: 3,
-  height: 3,
+  width: 20,
+  height: 10,
   
   draw(){
     for(let i = 0; i < this.height; i++){
@@ -20,12 +20,12 @@ let board = {
         row.appendChild(tile);
       };
     };
-    this.domBoard.style.aspectRatio = `${board.width}/${board.height}`;
+    // this.domBoard.style.aspectRatio = `${board.width}/${board.height}`;
   },
 }
 
 let mines = {
-  quantity: 1,
+  quantity: 30,
   positions: [],
   
   placeMines(){
@@ -80,9 +80,11 @@ function checkForMines(x,y){
   });
   const clickedTile = document.querySelector(`[x="${x}"][y="${y}"]`);
   clickedTile.classList.add("selected");
-  clickedTile.innerText = foundMines;
-  let colors = ["gray","blue","green","red","darkblue","darkred","darkgreen","gray","gray"];
-  clickedTile.style.color = colors[foundMines];
+  //adding number of mines around
+  if(foundMines > 0){
+    clickedTile.innerText = foundMines;
+    let colors = ["gray","blue","green","red","darkblue","darkred","darkgreen","gray","gray"];
+    clickedTile.style.color = colors[foundMines];}
 };
 
 

@@ -65,6 +65,7 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 - ❌ sounds
 - - ❌ sound toggle button in options
 - ❌ show the README.md in the page
+- ❌ replace numbers for images (preventing bad tile scaling)
 
 ## update 1
 I just made a simple page with some style to start with the game. I wasn't sure how to make it, so I went again for a really simple aestetic, I can change it later.
@@ -102,3 +103,31 @@ Playing a little I just noticed something: the randomizer can place another mine
 Something that worries me is: What if there's only a few available spaces? The `while` loop will go crazy generating thousand of coordinates until it hits the empty spot.
 
 If I keep the mines number not too high (making the game less challenging), it won't be a problem, but I can try something in case I want to place 99 mines in a 10x10 board: make an array representing each tile, and the randomizer just removes an element for each mine, so it will never be selected twice.
+
+## update 4
+After trying a lot of ways to check if a generated coordinates for a mine is already occupied (and falling on infinite loops), I found a really simple way to do it. Check this snippet:
+
+```javascript
+// ...
+let x = rand(board.width);
+let y = rand(board.height);
+
+let posToString = [];
+mines.positions.forEach(pos => posToString.push(pos.toString()));
+
+while (posToString.includes([x,y].toString())){
+  x = rand(board.width);
+  y = rand(board.height);
+};
+// ...
+```
+For `JS` this is false: `[1,2] == [1,2]` so I did this:
+
+- declared `posToString` variable with an empty array
+- transformed each array inside the main array to a string and placed them in `posToString`
+- now I can compare strings and get **true** or **false**
+- if I get **true** (there's already a mine in that place), new coordinates (X and Y) will be generated
+
+I'm pretty sure searching on internet for this exact problem would get me with the same or much better solution, but I'm still learning and I don't want to just search for the solution. Maybe some advanced array methods would be better, may change this snippet of code in the future.
+
+Another change I made in the code: Instead of choosing colors with a long switch-case, I just placed the colors' name in an array and used the index to define the color.
