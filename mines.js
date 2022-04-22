@@ -1,7 +1,7 @@
 let board = {
   domBoard: document.querySelector(".board"),
-  width: 25,
-  height: 15,
+  width: 30,
+  height: 20,
   
   draw(){
     for(let i = 0; i < this.height; i++){
@@ -25,7 +25,7 @@ let board = {
 }
 
 let mines = {
-  quantity: 50,
+  quantity: 100,
   positions: [],
   
   placeMines(){
@@ -62,29 +62,64 @@ mines.placeMines();
 function checkForMines(x,y){
   let surrounding = [];
   let foundMines = 0;
-  surrounding.push([x,y-1]); //N
-  surrounding.push([x+1,y-1]); //NE
-  surrounding.push([x+1,y]); //E
-  surrounding.push([x+1,y+1]); //SE
-  surrounding.push([x,y+1]); //S
-  surrounding.push([x-1,y+1]); //SW
-  surrounding.push([x-1,y]); //W
-  surrounding.push([x-1,y-1]); //NW
+  if(x >= 0 && x < board.width && y-1 >=0 && y-1 < board.height){
+    surrounding.push([x,y-1]); //N
+  };
+  if(x+1 >= 0 && x+1 < board.width && y-1 >=0 && y-1 < board.height){
+    surrounding.push([x+1,y-1]); //NE
+  };
+  if(x+1 >= 0 && x+1 < board.width && y >=0 && y < board.height){
+    surrounding.push([x+1,y]); //E
+  };
+  if(x+1 >= 0 && x+1 < board.width && y+1 >=0 && y+1 < board.height){
+    surrounding.push([x+1,y+1]); //SE
+  };
+  if(x >= 0 && x < board.width && y+1 >=0 && y+1 < board.height){
+    surrounding.push([x,y+1]); //S
+  };
+  if(x-1 >= 0 && x-1 < board.width && y+1 >=0 && y+1 < board.height){
+    surrounding.push([x-1,y+1]); //SW
+  };
+  if(x-1 >= 0 && x < board.width && y >=0 && y < board.height){
+    surrounding.push([x-1,y]); //W
+  };
+  if(x-1 >= 0 && x-1 < board.width && y-1 >=0 && y-1 < board.height){
+    surrounding.push([x-1,y-1]); //NW
+  };
+
+  let empty = [];//for recursion
 
   surrounding.forEach(t => {
+    let minesFound = 0;
     mines.positions.forEach(m =>{
       if(t.toString() == m.toString()){
         foundMines++;
+        minesFound++;
       };
     });
+    const thisTile = document.querySelector(`[x="${t[0]}"][y="${t[1]}"]`);
+    if(minesFound == 0
+      && !thisTile.className.includes("selected")){
+      empty.push(t);
+    };
   });
-  const clickedTile = document.querySelector(`[x="${x}"][y="${y}"]`);
-  clickedTile.classList.add("selected");
+
+  const showTile = document.querySelector(`[x="${x}"][y="${y}"]`);
+  showTile.classList.add("selected");
   //adding number of mines around
   if(foundMines > 0){
-    clickedTile.innerText = foundMines;
+    showTile.innerText = foundMines;
     let colors = ["blue","green","red","darkblue",
       "darkred","darkgreen","gray","gray"];
-    clickedTile.style.color = colors[foundMines-1];
+    showTile.style.color = colors[foundMines-1];
   };
+
+  //conditions for recursion
+  empty.forEach(e => {
+    const thisTile = document.querySelector(`[x="${x}"][y="${y}"]`);
+    
+    if(thisTile.innerText.length == 0){
+      checkForMines(e[0],e[1]);
+    };
+  });
 };
