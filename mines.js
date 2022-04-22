@@ -1,7 +1,7 @@
 let board = {
   domBoard: document.querySelector(".board"),
-  width: 20,
-  height: 10,
+  width: 3,
+  height: 3,
   
   draw(){
     for(let i = 0; i < this.height; i++){
@@ -25,14 +25,23 @@ let board = {
 }
 
 let mines = {
-  quantity: 20,
+  quantity: 9,
   positions: [],
   
   placeMines(){
     for (let i = 0; i < this.quantity; i++) {
       let x = rand(board.width);
       let y = rand(board.height);
-      //note: check if there's a mine first before placing another
+      //coordinates to string for comparison
+      let posToString = [];
+      mines.positions.forEach(pos => posToString.push(pos.toString()));
+
+      while (posToString.includes([x,y].toString())){
+        console.log("tile occupied, retrying...");
+        x = rand(board.width);
+        y = rand(board.height);
+      };
+
       this.positions.push([x,y]);
       //test, show mines on board
       const test = document.querySelector(`[x="${x}"][y="${y}"]`)
@@ -94,13 +103,14 @@ function checkForMines(x,y){
       color = "darkred";
       break;
     case 6:
+      color = "darkgreen";
       break;
     case 7:
-      break;
     case 8:
+      color = "gray";
       break;
     default:
-      alert("an error ocurred");
+      alert("Error: two or more mines found in the same place");
       break;
     }
     clickedTile.style.color = color;
