@@ -7,6 +7,7 @@ body {
   background-color: darkslateblue;
   font-family: Roboto, 'Courier New', Courier, monospace;
   color: #eee;
+  justify-content: center;
 }
 div {
   display: flex;
@@ -38,6 +39,7 @@ p {
 .content {
   flex-direction: column;
   padding: 10px;
+  max-width: 1000px;
 }
 
 .game-area {
