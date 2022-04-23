@@ -22,7 +22,13 @@ header {
 }
 
 p {
+  flex: 1 1 auto;
   margin: 0;
+}
+
+output {
+  text-align: center;
+  color: #333;
 }
 
 .top {
@@ -37,9 +43,48 @@ p {
 }
 
 .content {
+  flex: 2 1 0;
   flex-direction: column;
   padding: 10px;
   max-width: 1000px;
+  min-width: 350px;
+}
+
+.title-menu {
+  margin: 0 0 15px 0;
+}
+
+.options-button {
+  justify-content: flex-end;
+}
+
+.menu {
+  flex: 1 1 0;
+  flex-direction: column;
+  border: 3px outset gray;
+  max-width: 300px;
+  min-width: 300px;
+} .hidden {
+  display: none;
+}
+.settings {
+  background-color: #aea8cf;
+  flex: 1 1 0;
+  flex-direction: column;
+  border: 3px inset gray;
+} .settings.smaller {
+  flex: 0 0 auto;
+}
+.option-title {
+  margin: 0;
+  text-align: center;
+  background-color: #bbb;
+  color: #333;
+}
+.settings p {
+  /* margin: 0; */
+  text-align: center;
+  color: #444;
 }
 
 .game-area {

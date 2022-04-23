@@ -12,8 +12,12 @@
 <body>
   <div class="content">
     <header>
+      <div class="title-menu">
+        <p>Minesweeper</p>
+        <div class="options-button">[=]</div>
+      </div>
       <div class="game-info">
-        <div class="top left"><p>Mines: <span>00</span></p></div>
+        <div class="top left"><p>Mines: <span class="mines-counter">00</span></p></div>
         <div class="top center">face</div>
         <div class="top right"><p>Time: <span>000</span></p></div>
     </div>
@@ -23,8 +27,42 @@
       <div class="board">
       </div>
     </div>
+  </div>
 
-    <footer><button>Options</button><button>How to play</button><button>About</button></footer>
+  <div class="menu hidden">
+    <div class="settings smaller">
+      <h2 class="option-title">Game Settings</h2>
+      <p>Horizontal</p>
+      <input type="range" name="scale-x" id="scale-x">
+      <output class="scale-x-output" for="scale-x">000</output>
+      <p>Vertical</p>
+      <input type="range" name="scale-y" id="scale-y">
+      <output class="scale-y-output" for="scale-x">000</output>
+      <p>Mines</p>
+      <input type="range" name="mines" id="mines">
+      <output class="mines-output" for="mines">000</output>
+    </div>
+    
+    <div class="settings">
+      <h2 class="option-title">How to Play</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing
+        elit. Tenetur pariatur labore ut qui distinctio a
+        reprehenderit iste repellendus maxime nulla,
+        laudantium dolor? Sequi magni nulla vero doloremque
+        culpa doloribus deleniti laboriosam, perferendis,
+        consequatur quaerat ullam reiciendis sunt. Dolorum
+        nesciunt atque reiciendis architecto quasi eius?
+        Consequatur excepturi voluptatum quidem autem hic.</p>
+      </div>
+      
+      <div class="settings">
+        <h2 class="option-title">About</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Id, eveniet iste est quaerat sequi veniam porro
+          dolores, ut vel, possimus voluptate accusantium fuga!
+          Aut saepe odit omnis. Reiciendis, consequuntur
+          veritatis.</p>
+      </div>
   </div>
 </body>
 </html>

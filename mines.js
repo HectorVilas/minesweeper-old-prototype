@@ -1,7 +1,7 @@
 let board = {
   domBoard: document.querySelector(".board"),
-  width: 30,
-  height: 20,
+  width: 20,
+  height: 10,
   
   draw(){
     for(let i = 0; i < this.height; i++){
@@ -25,7 +25,7 @@ let board = {
 }
 
 let mines = {
-  quantity: 50,
+  quantity: 30,
   positions: [],
   
   placeMines(){
@@ -130,7 +130,15 @@ let devTools = {
   },
 };
 
+let minesCounter = document.querySelector(".mines-counter");
+minesCounter.innerText = mines.quantity;
+
+let menu = document.querySelector(".menu");
+let btnOptions = document.querySelector(".options-button");
+btnOptions.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+
 //starting game
 board.draw();
 mines.placeMines();
-// devTools.revealMines();
