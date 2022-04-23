@@ -68,7 +68,7 @@ function checkForMines(x,y){
 
 function showSurroundingMines(x,y){
   let surrounding = [];
-  let foundMines = 0;
+  let minesAround = 0;
   validPosition(x,y-1,surrounding); //N
   validPosition(x+1,y-1,surrounding); //NE
   validPosition(x+1,y,surrounding); //E
@@ -81,15 +81,15 @@ function showSurroundingMines(x,y){
   let empty = [];//for recursion
 
   surrounding.forEach(t => {
-    let minesFound = 0;
+    let minesFound = false;
     mines.positions.forEach(m =>{
       if(t.toString() == m.toString()){
-        foundMines++;
-        minesFound++;
+        minesAround++;
+        minesFound = true;
       };
     });
     const thisTile = document.querySelector(`[x="${t[0]}"][y="${t[1]}"]`);
-    if(minesFound == 0
+    if(minesFound == false
       && !thisTile.className.includes("selected")){
       empty.push(t);
     };
@@ -98,11 +98,11 @@ function showSurroundingMines(x,y){
   const showTile = document.querySelector(`[x="${x}"][y="${y}"]`);
   showTile.classList.add("selected");
   //adding number of mines around
-  if(foundMines > 0){
-    showTile.innerText = foundMines;
+  if(minesAround > 0){
+    showTile.innerText = minesAround;
     let colors = ["blue","green","red","darkblue",
       "darkred","darkgreen","gray","gray"];
-    showTile.style.color = colors[foundMines-1];
+    showTile.style.color = colors[minesAround-1];
   };
 
   //conditions for recursion
