@@ -139,6 +139,24 @@ btnOptions.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
 
+let sliderX = document.querySelector("#scale-x");
+let sliderXOutput = document.querySelector(".scale-x-output");
+sliderX.addEventListener("input", () => {
+  sliderXOutput.innerText = sliderX.value;
+});
+
+let sliderY = document.querySelector("#scale-y");
+let sliderYOutput = document.querySelector(".scale-y-output");
+sliderY.addEventListener("input", () => {
+  sliderYOutput.innerText = sliderY.value;
+});
+
+let sliderMines = document.querySelector("#mines");
+let sliderMinesOutput = document.querySelector(".mines-output");
+sliderMines.addEventListener("input", () => {
+  sliderMinesOutput.innerText = sliderMines.value;
+});
+
 //starting game
 board.draw();
 mines.placeMines();

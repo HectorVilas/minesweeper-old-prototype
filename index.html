@@ -29,18 +29,19 @@
     </div>
   </div>
 
-  <div class="menu hidden">
+  <div class="menu">
     <div class="settings smaller">
       <h2 class="option-title">Game Settings</h2>
       <p>Horizontal</p>
-      <input type="range" name="scale-x" id="scale-x">
-      <output class="scale-x-output" for="scale-x">000</output>
+      <input type="range" name="scale-x" id="scale-x" min="5" max="50" value="20">
+      <output class="scale-x-output" for="scale-x">20</output>
       <p>Vertical</p>
-      <input type="range" name="scale-y" id="scale-y">
-      <output class="scale-y-output" for="scale-x">000</output>
+      <input type="range" name="scale-y" id="scale-y" min="5" max="50" value="10">
+      <output class="scale-y-output" for="scale-x">10
+      </output>
       <p>Mines</p>
-      <input type="range" name="mines" id="mines">
-      <output class="mines-output" for="mines">000</output>
+      <input type="range" name="mines" id="mines" min="1" max="200" value="30">
+      <output class="mines-output" for="mines">30</output>
     </div>
     
     <div class="settings">
