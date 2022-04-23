@@ -42,8 +42,8 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 
 ### game logic:
 - ✅ when a tile is clicked
-- - ❌ if there's a mine
-- - - ❌ show it and reveal the rest of the mines
+- - ✅ if there's a mine
+- - - ✅ show it and reveal the rest of the mines
 - - - ❌ the game is over
 - - - ❌ the player can't keep clicking on the board without starting again
 - - ✅ else, show the number of mines surrounding the tile
@@ -140,3 +140,8 @@ I can't believe it, I made a recursive function, I finally made it! Some conditi
 I've been all the day trying to make it, and it feels so simple now... This project was a really good idea to keep learning. I'm so happy right now, the satisfaction is immeasurable.
 
 ![propagating function in action](./media/preview01.png)
+
+## update 6
+I made a "dev tool" (it's just an object with a function) to toggle the mines visibility. I also hid all the revealed mines and added a basic, temporal "lose condition" that will prompt a message if your selected tile have a mine, then all the mines will be revealed with that same "dev tool" function. Maybe I should rename it.
+
+Now the game is playable, but even after losing the player is still able to keep playing. I should remove all the event listeners, maybe my next step.
