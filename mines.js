@@ -7,7 +7,7 @@ let board = {
     for(let i = 0; i < this.height; i++){
       let row = document.createElement("div");
       this.domBoard.appendChild(row);
-      for(let j = 0; j < board.width; j++){
+      for(let j = 0; j < this.width; j++){
         let tile = document.createElement("div");
         tile.classList = "tile";
         tile.setAttribute("x",`${j}`);
@@ -20,7 +20,7 @@ let board = {
         row.appendChild(tile);
       };
     };
-    this.domBoard.style.aspectRatio = `${board.width}/${board.height}`;
+    this.domBoard.style.aspectRatio = `${this.width}/${this.height}`;
   },
 }
 
@@ -34,7 +34,7 @@ let mines = {
       let y = this.rand(board.height);
       //coordinates to string for comparison
       let posToString = [];
-      mines.positions.forEach(pos => posToString.push(pos.toString()));
+      this.positions.forEach(pos => posToString.push(pos.toString()));
 
       while (posToString.includes([x,y].toString())){
         console.log("tile occupied, retrying...");
@@ -43,23 +43,30 @@ let mines = {
       };
 
       this.positions.push([x,y]);
-      //test, show mines on board
-      const test = document.querySelector(`[x="${x}"][y="${y}"]`)
-      test.classList.add("testing")
-      ///////////////////////////
     };
   },
 
   rand(n){
-    return Math.floor(Math.random()*n)
+    return Math.floor(Math.random()*n);
   },
 };
 
-board.draw();
-mines.placeMines();
-
 //on click
 function checkForMines(x,y){
+    let posToString = [];
+    mines.positions.forEach(m => {
+      posToString.push(m.toString());
+    });
+    if(posToString.includes([x,y].toString())){
+      alert("mine");
+      devTools.revealMines();
+    } else{
+      showSurroundingMines(x,y);
+    };
+};
+
+
+function showSurroundingMines(x,y){
   let surrounding = [];
   let foundMines = 0;
   validPosition(x,y-1,surrounding); //N
@@ -103,7 +110,7 @@ function checkForMines(x,y){
     const thisTile = document.querySelector(`[x="${x}"][y="${y}"]`);
     
     if(thisTile.innerText.length == 0){
-      checkForMines(e[0],e[1]);
+      showSurroundingMines(e[0],e[1]);
     };
   });
 };
@@ -113,3 +120,17 @@ function validPosition(x,y,arr){
     arr.push([x,y]);
   };
 };
+
+let devTools = {
+  revealMines(){
+    mines.positions.forEach(mine => {
+      document.querySelector(`[x="${mine[0]}"][y="${mine[1]}"]`)
+      .classList.toggle("reveal");
+    });
+  },
+};
+
+//starting game
+board.draw();
+mines.placeMines();
+// devTools.revealMines();

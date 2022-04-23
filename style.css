@@ -74,7 +74,7 @@ p {
   border-style: solid;
   border-color: #bbb;
 }
-.tile.testing { /* DELETE LATER */
+.tile.reveal {
   border-color: red;
 }
 
