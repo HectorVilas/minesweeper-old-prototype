@@ -25,7 +25,7 @@ let board = {
 }
 
 let mines = {
-  quantity: 100,
+  quantity: 50,
   positions: [],
   
   placeMines(){
@@ -62,30 +62,14 @@ mines.placeMines();
 function checkForMines(x,y){
   let surrounding = [];
   let foundMines = 0;
-  if(x >= 0 && x < board.width && y-1 >=0 && y-1 < board.height){
-    surrounding.push([x,y-1]); //N
-  };
-  if(x+1 >= 0 && x+1 < board.width && y-1 >=0 && y-1 < board.height){
-    surrounding.push([x+1,y-1]); //NE
-  };
-  if(x+1 >= 0 && x+1 < board.width && y >=0 && y < board.height){
-    surrounding.push([x+1,y]); //E
-  };
-  if(x+1 >= 0 && x+1 < board.width && y+1 >=0 && y+1 < board.height){
-    surrounding.push([x+1,y+1]); //SE
-  };
-  if(x >= 0 && x < board.width && y+1 >=0 && y+1 < board.height){
-    surrounding.push([x,y+1]); //S
-  };
-  if(x-1 >= 0 && x-1 < board.width && y+1 >=0 && y+1 < board.height){
-    surrounding.push([x-1,y+1]); //SW
-  };
-  if(x-1 >= 0 && x < board.width && y >=0 && y < board.height){
-    surrounding.push([x-1,y]); //W
-  };
-  if(x-1 >= 0 && x-1 < board.width && y-1 >=0 && y-1 < board.height){
-    surrounding.push([x-1,y-1]); //NW
-  };
+  validPosition(x,y-1,surrounding); //N
+  validPosition(x+1,y-1,surrounding); //NE
+  validPosition(x+1,y,surrounding); //E
+  validPosition(x+1,y+1,surrounding); //SE
+  validPosition(x,y+1,surrounding); //S
+  validPosition(x-1,y+1,surrounding); //SW
+  validPosition(x-1,y,surrounding); //W
+  validPosition(x-1,y-1,surrounding); //NW
 
   let empty = [];//for recursion
 
@@ -122,4 +106,10 @@ function checkForMines(x,y){
       checkForMines(e[0],e[1]);
     };
   });
+};
+
+function validPosition(x,y,arr){
+  if(x >= 0 && x < board.width && y >=0 && y < board.height){
+    arr.push([x,y]);
+  };
 };
