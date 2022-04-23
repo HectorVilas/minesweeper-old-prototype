@@ -138,3 +138,5 @@ Another change I made in the code: Instead of choosing colors with a long switch
 I can't believe it, I made a recursive function, I finally made it! Some conditions here and there and here it is, the function to reveal all the surroundings tiles not surrounded by mines. It will reveal all the conected tiles until it finds a surrounded one and stop propagating from there.
 
 I've been all the day trying to make it, and it feels so simple now... This project was a really good idea to keep learning. I'm so happy right now, the satisfaction is immeasurable.
+
+![propagating function in action](./media/preview01.png)
