@@ -67,6 +67,8 @@ function checkForMines(x,y){
       alert("mine");
       devTools.revealMines();
       gameOver = true;
+      let menu = document.querySelector(".menu");
+      menu.classList.toggle("hidden");
     } else {
       showSurroundingMines(x,y);
     };
