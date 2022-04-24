@@ -145,3 +145,8 @@ I've been all the day trying to make it, and it feels so simple now... This proj
 I made a "dev tool" (it's just an object with a function) to toggle the mines visibility. I also hid all the revealed mines and added a basic, temporal "lose condition" that will prompt a message if your selected tile have a mine, then all the mines will be revealed with that same "dev tool" function. Maybe I should rename it.
 
 Now the game is playable, but even after losing the player is still able to keep playing. I should remove all the event listeners, maybe my next step.
+
+## update 7
+I added an "options" menu, it will show or hide clicking on the placeholder icon at the tip right of the page. In the options menu there's 3 sliders: 2 for selecting board width and heigh and a third one for the quantity of mines. The "how to play" and "about" are placeholders for now.
+
+To prevent players to select more mines than available tiles, if  `board.width * board.height` is higher than the mines count, it will automatically adjust it's max value to prevent an infinite loop.
