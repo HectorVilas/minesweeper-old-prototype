@@ -18,54 +18,54 @@ This is just a to-do a list to keep track of the progress. More will be added wh
 
 ### things to display on screen:
 - ✅ the board
-- ❌ counters
-- - ❌ remaining mines
-- - ❌ time played
-- ❌ classic smiley face
-- ❌ menu buttons
+- ❌ ~~counters~~
+- - ❌ ~~remaining mines~~
+- - ❌ ~~time played~~
+- ❌ ~~classic smiley face~~
+- ✅ menu buttons
 
 ### game options and buttons:
-- ❌ how to play
-- ❌ settings
-- - ❌ number of mines
-- - ❌ board size (X and Y)
-- ❌ about
-- - ❌ link to my Github profile
-- - ❌ credits for any media I may use
+- ✅ how to play
+- ✅ settings
+- - ✅ number of mines
+- - ✅ board size (X and Y)
+- ✅ about
+- - ✅ link to my Github profile
+- - ❌ ~~credits for any media I may use~~
 
 ### board generation:
 - ✅ the board must be generated
-- - ❌ width and height defined by option settings
+- - ✅ width and height defined by option settings
 - ✅ mines will be hidden in the board
-- - ❌ quantity defined by option settings
+- - ✅ quantity defined by option settings
 - - ✅ the position will be randomized
 
 ### game logic:
 - ✅ when a tile is clicked
 - - ✅ if there's a mine
 - - - ✅ show it and reveal the rest of the mines
-- - - ❌ the game is over
-- - - ❌ the player can't keep clicking on the board without starting again
+- - - ✅ the game is over
+- - - ✅ the player can't keep clicking on the board without starting again
 - - ✅ else, show the number of mines surrounding the tile
 - - - ✅ if there's no mines, nothing will be shown
 - - - ✅ the surrounding tiles will auto-reveal until there's a mine around
-- ❌ right click must add a flag to mark a mine
-- - ❌ every flag must reduce the mine counter by one
-- - ❌ player can't put more flag than the number of mines
-- - ❌ in case of a present flag, it will be removed
-- ❌ when all mines has been discovered and tiles without mines revealed
-- - ❌ the game ends, announcing it
-- - ❌ remaining flags will be placed over the mines
-- - ❌ the timer must stop
+- ❌ ~~right click must add a flag to mark a mine~~
+- - ❌ ~~every flag must reduce the mine counter by one~~
+- - ❌ ~~player can't put more flag than the number of mines~~
+- - ❌ ~~in case of a present flag, it will be removed~~
+- ✅ when all mines has been discovered and tiles without mines revealed
+- - ✅ the game ends, announcing it
+- - ❌ ~~remaining flags will be placed over the mines~~
+- - ❌ ~~the timer must stop~~
 
 ### other ideas:
-- ❌ a graphic minefield
-- ❌ non-rectangular board shapes
-- ❌ num type input items changes board size in real time
-- ❌ sounds
-- - ❌ sound toggle button in options
-- ❌ show the README.md in the page
-- ❌ replace numbers for images (preventing bad tile scaling)
+- ❌ ~~a graphic minefield~~
+- ❌ ~~non-rectangular board shapes~~
+- ❌ ~~num type input items changes board size in real time~~
+- ❌ ~~sounds~~
+- - ❌ ~~sound toggle button in options~~
+- ❌ ~~show the README.md in the page~~
+- ❌ ~~replace numbers for images (preventing bad tile scaling)~~
 
 ## update 1
 I just made a simple page with some style to start with the game. I wasn't sure how to make it, so I went again for a really simple aestetic, I can change it later.
@@ -157,3 +157,8 @@ As it's impossible to remove an event listener with an anonymous function, I add
 At the same time, I made a function to check if there's any remaining tile without a mine to reveal. If there's none, player wins.
 
 **Thoughts:** my code is so bad... I was thinking about it while lying the bed, and thought a better way to make, well, everything. My first idea of making a 2D array was the best solution, and the numbers should be calculated while the mines are randomized instead of on every click. Also the `HTML` classes and `CSS` needs a complete rework. I must change my workflow to simplify a lot of it, and I think I know how. I'll keep updating this game until I have the basic functionality and then make a second version in the future, with better code. Sorry, game, it was fun but a bad code is a bad code and I'm not Notch enough to get away with it (just kidding).
+
+# announce
+I'm going to  make this game again, from scratch, so I'm going to archive this repository, to keep as reference to see my progress. The roadmap will be the same.
+
+See you in the ~~next project~~ remake! Haha!
