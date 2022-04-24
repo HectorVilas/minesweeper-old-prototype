@@ -57,10 +57,7 @@ let mines = {
 
 //on click
 function checkForMines(x,y){
-    let posToString = [];
-    mines.positions.forEach(m => {
-      posToString.push(m.toString());
-    });
+    let posToString = mines.positions.map(m => m.toString());
     if(posToString.includes([x,y].toString())){
       alert("mine");
       devTools.revealMines();
