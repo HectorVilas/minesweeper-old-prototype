@@ -38,9 +38,7 @@ let mines = {
     for (let i = 0; i < this.quantity; i++) {
       let x = this.rand(board.width);
       let y = this.rand(board.height);
-      //coordinates to string for comparison
-      let posToString = [];
-      this.positions.forEach(pos => posToString.push(pos.toString()));
+      let posToString = mines.positions.map(m => m.toString());
 
       while (posToString.includes([x,y].toString())){
         console.log("tile occupied, retrying...");
