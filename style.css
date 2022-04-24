@@ -56,9 +56,12 @@ output {
 
 .options-button {
   justify-content: flex-end;
+  z-index: 1;
 }
 
 .menu {
+  position: absolute;
+  right: 0;
   flex: 1 1 0;
   flex-direction: column;
   border: 3px outset gray;
