@@ -32,7 +32,7 @@ let board = {
     };
     this.domBoard.style.aspectRatio = `${this.width}/${this.height}`;
   },
-}
+};
 
 let mines = {
   quantity: 30,
@@ -46,7 +46,7 @@ let mines = {
       let posToString = mines.positions.map(m => m.toString());
 
       while (posToString.includes([x,y].toString())){
-        console.log("tile occupied, retrying...");
+        // console.log("tile occupied, retrying...");
         x = this.rand(board.width);
         y = this.rand(board.height);
       };
@@ -67,11 +67,25 @@ function checkForMines(x,y){
       alert("mine");
       devTools.revealMines();
       gameOver = true;
-    } else{
+    } else {
       showSurroundingMines(x,y);
     };
+    winCondition();/////// testing
 };
 
+function winCondition(){
+  let allTheTiles = document.querySelectorAll(".tile");
+  let remainingTiles = board.width*board.height-mines.quantity;
+  allTheTiles.forEach(t => {
+    if(t.className.includes("selected")){
+      remainingTiles--;
+    }
+  });
+  if (remainingTiles == 0){
+    alert("win");
+    gameOver = true;
+  };
+};
 
 function showSurroundingMines(x,y){
   let surrounding = [];
