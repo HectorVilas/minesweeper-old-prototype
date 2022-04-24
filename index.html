@@ -14,12 +14,12 @@
     <header>
       <div class="title-menu">
         <p>Minesweeper</p>
-        <div class="options-button">[=]</div>
+        <div class="options-button"><img src="./media/menu-icon.png" alt="Menu Icon"></div>
       </div>
       <div class="game-info">
         <div class="top left"><p>Mines: <span class="mines-counter">00</span></p></div>
-        <div class="top center">face</div>
-        <div class="top right"><p>Time: <span>000</span></p></div>
+        <div class="top center"><!-- face --></div>
+        <!-- <div class="top right"><p>Time: <span>000</span></p></div> -->
     </div>
     </header>
 
@@ -42,29 +42,33 @@
       <p>Mines</p>
       <input type="range" name="mines" id="mines" min="1" max="200" value="30">
       <output class="mines-output" for="mines">30</output>
-      <button class="settings-apply">Apply</button>
+      <button class="settings-apply">Apply/Restart</button>
     </div>
     
     <div class="settings">
       <h2 class="option-title">How to Play</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing
-        elit. Tenetur pariatur labore ut qui distinctio a
-        reprehenderit iste repellendus maxime nulla,
-        laudantium dolor? Sequi magni nulla vero doloremque
-        culpa doloribus deleniti laboriosam, perferendis,
-        consequatur quaerat ullam reiciendis sunt. Dolorum
-        nesciunt atque reiciendis architecto quasi eius?
-        Consequatur excepturi voluptatum quidem autem hic.</p>
+      <p>Choose a tile to reveal how many mines are hidden around it. If you
+        fall in a mined tile, it's game over. If you reveal all the safe tiles,
+        you will win. If you choose a tile without a mine, the surrounding tiles
+        will reveal itself if they also don't have a mine on it.
+      </p>
       </div>
       
       <div class="settings">
         <h2 class="option-title">About</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Id, eveniet iste est quaerat sequi veniam porro
-          dolores, ut vel, possimus voluptate accusantium fuga!
-          Aut saepe odit omnis. Reiciendis, consequuntur
-          veritatis.</p>
+        <p>Game made by <a href="https://github.com/HectorVilas" target="_blank"><img src="https://hectorvilas.github.io/odin-calculator/images/GitHub-Mark-Light-32px.png" alt="Github Logo"> HectorVilas</a>.</p>
+        <p>Check it out for more games and projects.</p>
       </div>
+
+      <div class="settings">
+        <h2 class="option-title">Announce</h2>
+        <p>As the code for this entire project needs to be rewritten,
+          I'm going to cease the progress on this project. A new
+          minesweeper will be rewritten from scratch, with an optimized
+          code and all the other things in the roadmap.
+          <a href="https://github.com/HectorVilas" target="_blank">Check my Github
+          profile</a> for more.</p>
+        </div>
   </div>
 </body>
 </html>
