@@ -82,6 +82,7 @@ function winCondition(){
     }
   });
   if (remainingTiles == 0){
+    devTools.revealMines();
     alert("win");
     gameOver = true;
   };
