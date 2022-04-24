@@ -31,6 +31,11 @@ output {
   color: #333;
 }
 
+img {
+  width: 15px;
+  height: auto;
+}
+
 .top {
   padding: 0 20px;
 }
@@ -85,7 +90,6 @@ output {
   color: #333;
 }
 .settings p {
-  /* margin: 0; */
   text-align: center;
   color: #444;
 }
@@ -93,13 +97,11 @@ output {
 .game-area {
   justify-content: center;
   align-items: center;
-  /* padding: 20px; */
   flex-direction: row;
 }
 
 .board {
   flex-direction: column;
-  /*temporal solution to disable scrolling*/
   max-height: 85vh;
   max-width: 85vw;
 }
@@ -124,6 +126,7 @@ output {
 }
 .tile.reveal {
   border-color: red;
+  background-color: red;
 }
 
 
@@ -135,10 +138,4 @@ footer {
 }
 footer > button {
   flex: 1 1 0;
-}
-
-/*for testing*/
-
-** {
-  outline: 1px solid gray;
 }
