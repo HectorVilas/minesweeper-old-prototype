@@ -147,6 +147,13 @@ I made a "dev tool" (it's just an object with a function) to toggle the mines vi
 Now the game is playable, but even after losing the player is still able to keep playing. I should remove all the event listeners, maybe my next step.
 
 ## update 7
-I added an "options" menu, it will show or hide clicking on the placeholder icon at the tip right of the page. In the options menu there's 3 sliders: 2 for selecting board width and heigh and a third one for the quantity of mines. The "how to play" and "about" are placeholders for now.
+I added an "options" menu, it will show or hide clicking on the placeholder icon at the tip right of the page. In the options menu there's 3 sliders: 2 for selecting board width and height and a third one for the quantity of mines. The "how to play" and "about" are placeholders for now.
 
-To prevent players to select more mines than available tiles, if  `board.width * board.height` is higher than the mines count, it will automatically adjust it's max value to prevent an infinite loop.
+To prevent players to select more mines than available tiles, if  `board.width * board.height` is lower than the mines count, it will automatically adjust it's max value to prevent an infinite loop.
+
+## update 8
+As it's impossible to remove an event listener with an anonymous function, I added a boolean variable for game over status. The code inside de anonymous fuction will only run if the game is not over.
+
+At the same time, I made a function to check if there's any remaining tile without a mine to reveal. If there's none, player wins.
+
+**Thoughts:** my code is so bad... I was thinking about it while lying the bed, and thought a better way to make, well, everything. My first idea of making a 2D array was the best solution, and the numbers should be calculated while the mines are randomized instead of on every click. Also the `HTML` classes and `CSS` needs a complete rework. I must change my workflow to simplify a lot of it, and I think I know how. I'll keep updating this game until I have the basic functionality and then make a second version in the future, with better code. Sorry, game, it was fun but a bad code is a bad code and I'm not Notch enough to get away with it (just kidding).
