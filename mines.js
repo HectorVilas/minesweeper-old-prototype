@@ -1,9 +1,12 @@
+let gameOver = false;
+
 let board = {
   domBoard: document.querySelector(".board"),
   width: 20,
   height: 10,
   
   draw(){
+    gameOver = false;
     //removing board to allow redrawing
     while(this.domBoard.hasChildNodes()){
       this.domBoard.removeChild(this.domBoard.firstChild);
@@ -20,7 +23,9 @@ let board = {
         tile.style.aspectRatio = "1/1"; //prevent tile reescaling with number
 
         tile.addEventListener("click", () => {
-          checkForMines(j,i);
+          if(!gameOver){
+            checkForMines(j,i);
+          };
         });
         row.appendChild(tile);
       };
@@ -61,6 +66,7 @@ function checkForMines(x,y){
     if(posToString.includes([x,y].toString())){
       alert("mine");
       devTools.revealMines();
+      gameOver = true;
     } else{
       showSurroundingMines(x,y);
     };
@@ -126,7 +132,7 @@ let devTools = {
   revealMines(){
     mines.positions.forEach(mine => {
       document.querySelector(`[x="${mine[0]}"][y="${mine[1]}"]`)
-      .classList.toggle("reveal");
+      .classList.add("reveal");
     });
   },
 };
