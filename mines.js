@@ -4,6 +4,11 @@ let board = {
   height: 10,
   
   draw(){
+    //removing board to allow redrawing
+    while(this.domBoard.hasChildNodes()){
+      this.domBoard.removeChild(this.domBoard.firstChild);
+    };
+
     for(let i = 0; i < this.height; i++){
       let row = document.createElement("div");
       this.domBoard.appendChild(row);
@@ -29,6 +34,7 @@ let mines = {
   positions: [],
   
   placeMines(){
+    this.positions = []; //clearing array before placing mines
     for (let i = 0; i < this.quantity; i++) {
       let x = this.rand(board.width);
       let y = this.rand(board.height);
@@ -142,19 +148,40 @@ btnOptions.addEventListener("click", () => {
 let sliderX = document.querySelector("#scale-x");
 let sliderXOutput = document.querySelector(".scale-x-output");
 sliderX.addEventListener("input", () => {
-  sliderXOutput.innerText = sliderX.value;
+  sliderXOutput.innerText = parseInt(sliderX.value);
+  board.width = parseInt(sliderX.value);
+  maxMines();
 });
 
 let sliderY = document.querySelector("#scale-y");
 let sliderYOutput = document.querySelector(".scale-y-output");
 sliderY.addEventListener("input", () => {
-  sliderYOutput.innerText = sliderY.value;
+  sliderYOutput.innerText = parseInt(sliderY.value);
+  board.height = parseInt(sliderY.value);
+  maxMines();
 });
 
 let sliderMines = document.querySelector("#mines");
 let sliderMinesOutput = document.querySelector(".mines-output");
 sliderMines.addEventListener("input", () => {
-  sliderMinesOutput.innerText = sliderMines.value;
+  sliderMinesOutput.innerText = parseInt(sliderMines.value);
+  mines.quantity = parseInt(sliderMines.value);
+});
+
+function maxMines(){ //prevent more mines tan tiles
+  sliderMines.max = board.width*board.height;
+  if(parseInt(mines.quantity) > parseInt(sliderMines.max)){
+    mines.quantity = parseInt(sliderMines.max);
+    sliderMines.value = parseInt(sliderMines.max);
+    sliderMinesOutput.innerText = sliderMines.value;
+    sliderMinesOutput.innerText = parseInt(sliderMines.max);
+  };
+};
+
+let btnApply = document.querySelector(".settings-apply");
+btnApply.addEventListener("click", () => {
+  board.draw();
+  mines.placeMines();
 });
 
 //starting game
