@@ -1,3 +1,10 @@
+# announce
+Because the code is a disaster (`JS` and `CSS`), I'm going to make this game again, from scratch, so I'm going to archive this repository, to keep as reference to see my progress. The roadmap will be the same.
+
+See you in the ~~next project~~ remake!
+
+***
+
 # minesweeper
 Welcome to this new project! This time I'm ~~procrastinating the HTML forms course~~ making another game: the classic Minesweeper.
 
@@ -157,8 +164,3 @@ As it's impossible to remove an event listener with an anonymous function, I add
 At the same time, I made a function to check if there's any remaining tile without a mine to reveal. If there's none, player wins.
 
 **Thoughts:** my code is so bad... I was thinking about it while lying the bed, and thought a better way to make, well, everything. My first idea of making a 2D array was the best solution, and the numbers should be calculated while the mines are randomized instead of on every click. Also the `HTML` classes and `CSS` needs a complete rework. I must change my workflow to simplify a lot of it, and I think I know how. I'll keep updating this game until I have the basic functionality and then make a second version in the future, with better code. Sorry, game, it was fun but a bad code is a bad code and I'm not Notch enough to get away with it (just kidding).
-
-# announce
-I'm going to  make this game again, from scratch, so I'm going to archive this repository, to keep as reference to see my progress. The roadmap will be the same.
-
-See you in the ~~next project~~ remake! Haha!
