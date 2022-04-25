@@ -4,7 +4,7 @@ Welcome to this new project! This time I'm ~~procrastinating the HTML forms cour
 This time I want to make use of `JS`'s objects. My previous project, [Lights Out](https://github.com/HectorVilas/lights-out), was made with primitives and a lot of code got mixed and hard to read, so I better start using some objects for a tidy code.
 
 ## play the game
-# https://hectorvilas.github.io/minesweeper/
+# https://hectorvilas.github.io/minesweeper-old-prototype/
 
 ## roadmap:
 This is just a to-do a list to keep track of the progress. More will be added while the project keeps evolving.
